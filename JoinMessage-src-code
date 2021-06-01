@@ -1,4 +1,4 @@
-package me.join.pl;
+package me.vejdrjoin.pl;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -26,13 +26,16 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
-		e.setJoinMessage(p.getName() + ChatColor.GREEN + "[+]");
+		e.setJoinMessage(p.getName() + ChatColor.GOLD + "[" + ChatColor.GREEN + "+" + ChatColor.GOLD + "]");
 	}
 	
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent e) {
 		Player p = e.getPlayer();
-		e.setQuitMessage(p.getName() + ChatColor.RED + "[-]");
+		e.setQuitMessage(p.getName() + ChatColor.GOLD + "[" + ChatColor.RED + "-" + ChatColor.GOLD + "]");
+	}
+
+}
 	}
 
 }
