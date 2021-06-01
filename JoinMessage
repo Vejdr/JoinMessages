@@ -1,0 +1,38 @@
+package me.join.pl;
+
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import net.md_5.bungee.api.ChatColor;
+
+public class Main extends JavaPlugin implements Listener {
+	
+	
+	@Override
+	public void onEnable() {
+		this.getServer().getPluginManager().registerEvents(this, this);
+		
+	}
+	
+	@Override
+	public void onDisable() {
+		
+	}
+	
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent e) {
+		Player p = e.getPlayer();
+		e.setJoinMessage(p.getName() + ChatColor.GREEN + "[+]");
+	}
+	
+	@EventHandler
+	public void onPlayerQuit(PlayerQuitEvent e) {
+		Player p = e.getPlayer();
+		e.setQuitMessage(p.getName() + ChatColor.RED + "[-]");
+	}
+
+}
